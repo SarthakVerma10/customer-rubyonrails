@@ -1,0 +1,47 @@
+<h1><%= @customer.Name %></h1>
+
+<p>Phone: <%= @customer.Phone %></p>
+<p>Email: <%= @customer.Email %></p>
+<p>Address: <%= @customer.Address %></p>
+<p>Order:</p> 
+<% @customer.orders.each do |order| %>
+<p>
+  <strong>Order Number:</strong>
+    
+      <%= order.OrderNumber %>
+<% end %>
+</P>
+
+
+<ul>
+  <li><%= link_to "Edit", edit_customer_path(@customer) %></li>
+  <li><%= link_to "Destroy", customer_path(@customer),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2>Add a order:</h2>
+<%= form_with model: [ @customer, @customer.orders.build ] do |form| %>
+  <p>
+    <%= form.label :OrderNumber %><br>
+    <%= form.text_field :OrderNumber %>
+  </p>
+
+  <p>
+    <%= form.label :OrderStatus %><br>
+    <%= form.text_field :OrderStatus %>
+  </p>
+
+  <p>
+    <%= form.label :BillingAddress %><br>
+    <%= form.text_field :BillingAddress %>
+  </p>
+
+   <p>
+    <%= form.label :ShippingAddress %><br>
+    <%= form.text_field :ShippingAddress %>
+  </p>
+
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  OrderNumber: 1
+  OrderStatus: MyText
+  BillingAddress: MyText
+  ShippingAddress: MyText
+
+two:
+  OrderNumber: 1
+  OrderStatus: MyText
+  BillingAddress: MyText
+  ShippingAddress: MyText
